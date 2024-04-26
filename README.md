@@ -1,6 +1,8 @@
-# cpp-cmake-template
+# gbenchmark-example
 
-## About
+the example of [Google Benchmark](https://github.com/google/benchmark).
+
+## About the template
 
 A template for C++ projects using CMake.
 This repository includes settings for the following tools:

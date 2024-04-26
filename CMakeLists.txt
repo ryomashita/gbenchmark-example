@@ -19,6 +19,7 @@ include(${CMAKE_SCRIPTS_DIR}/set_compile_props.cmake)
 include(${CMAKE_SCRIPTS_DIR}/set_warnings_as_errors.cmake)
 include(${CMAKE_SCRIPTS_DIR}/enable_memcheck.cmake)
 include(${CMAKE_SCRIPTS_DIR}/enable_sanitizers.cmake)
+include(${CMAKE_SCRIPTS_DIR}/install_gbenchmark.cmake)
 
 # set default install path (can be overwritten with -DCMAKE_INSTALL_PREFIX=...)
 set(CMAKE_INSTALL_PREFIX
@@ -40,7 +41,7 @@ add_subdirectory(test)
 # https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C++.html
 # https://github.com/boost-ext/ut
 
-# CMake Style Guidelines:
+# CMake Style Guidelines are here:
 # https://gist.github.com/mbinna/c61dbb39bca0e4fb7d1f73b0d66a4fd1
 # https://fujii.github.io/2015/10/10/cmake-best-practice/
 # https://learn.microsoft.com/ja-jp/vcpkg/contributing/cmake-guidelines
