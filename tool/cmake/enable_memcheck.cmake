@@ -1,6 +1,6 @@
 find_program(VALGRIND_EXECUTABLE valgrind)
 if(NOT VALGRIND_EXECUTABLE)
-  message(ERROR "valgrind not found")
+  message(SEND_ERROR "valgrind not found")
   return()
 endif()
 
