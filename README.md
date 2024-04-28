@@ -2,10 +2,53 @@
 
 the example of [Google Benchmark](https://github.com/google/benchmark).
 
-## Resources about Google Benchmark
+## About Google Benchmark
+
+### Resources
 
 - [Repository](https://github.com/google/benchmark?tab=readme-ov-file)
 - [User Guide](https://github.com/google/benchmark/blob/main/docs/user_guide.md)
+
+## Install Benchmark
+
+see `./tool/cmake/install_gbenchmark.cmake`.
+
+## Running Benchmark
+
+To run the benchmark, compile and link against the benchmark library.
+The compiled executable will run all benchmarks by default.
+
+### Options
+
+Pass the --help flag for option information or see the [User Guide](https://github.com/google/benchmark/blob/main/docs/user_guide.md).
+
+- Output
+
+  - `--benchmark_out_format=<json|console|csv>`
+  - `--benchmark_out=<filename>`
+  - `--benchmark_context=<key>=<value>,...`
+
+- Running
+
+  - `--benchmark_filter=<regex>`
+  - `--benchmark_min_warmup_time=<min_warmup_time>`
+  - `--benchmark_repetitions=<num_repetitions>`
+
+- `--benchmark_list_tests={true|false}`
+- `--benchmark_min_time=`<integer>x`OR`<float>s` `
+- `--benchmark_enable_random_interleaving={true|false}`
+- `--benchmark_report_aggregates_only={true|false}`
+- `--benchmark_display_aggregates_only={true|false}`
+- `--benchmark_format=<console|json|csv>`
+- `--benchmark_color={auto|true|false}`
+- `--benchmark_counters_tabular={true|false}`
+- `--benchmark_perf_counters=<counter>,...`
+- `--benchmark_time_unit={ns|us|ms|s}`
+- `--v=<verbosity>`
+
+### Result Comparision
+
+See [Additional Tooling Documentation](https://github.com/google/benchmark/blob/main/docs/tools.md)
 
 ## About the template
 

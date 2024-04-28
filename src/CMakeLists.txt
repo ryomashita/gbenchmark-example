@@ -8,3 +8,15 @@ set_warnings_as_errors(Add)
 add_executable(GettingStarted getting_started.cpp)
 set_normal_compile_options(GettingStarted)
 link_gbenchmark(GettingStarted)
+
+add_executable(BasicUsage basic_usage.cpp)
+set_normal_compile_options(BasicUsage)
+link_gbenchmark(BasicUsage)
+
+add_executable(SetupTeardown setup_teardown.cpp)
+set_normal_compile_options(SetupTeardown)
+link_gbenchmark(SetupTeardown)
+
+add_executable(PassingArguments pass_arguments.cpp)
+set_normal_compile_options(PassingArguments)
+link_gbenchmark(PassingArguments)

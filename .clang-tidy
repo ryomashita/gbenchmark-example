@@ -1,7 +1,7 @@
 ---
 Checks: "-*, clang-diagnostic-*,clang-analyzer-*,cppcoreguidelines-*,bugprone-*,modernize-*,performance-*,portability-*,google-*"
 WarningsAsErrors: ''
-HeaderFilterRegex: ''
+HeaderFilterRegex: '*.*'
 FormatStyle: file
 CheckOptions:
   - key:             llvm-else-after-return.WarnOnConditionVariables

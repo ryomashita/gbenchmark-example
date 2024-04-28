@@ -37,11 +37,11 @@ endif()
 add_subdirectory(src)
 add_subdirectory(test)
 
-# I refered the following projecst and articles to make cmake scripts.
+# CMake scripts references:
 # https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C++.html
 # https://github.com/boost-ext/ut
 
-# CMake Style Guidelines are here:
+# CMake Style Guidelines:
 # https://gist.github.com/mbinna/c61dbb39bca0e4fb7d1f73b0d66a4fd1
 # https://fujii.github.io/2015/10/10/cmake-best-practice/
 # https://learn.microsoft.com/ja-jp/vcpkg/contributing/cmake-guidelines
