@@ -1,19 +1,24 @@
 #include "benchmark/benchmark.h"
+#include <cstddef>
+#include <cstdint>
 #include <cstring>
 #include <iostream>
-
-using namespace std;
+#include <sys/types.h>
 
 // Reference:
 // https://github.com/google/benchmark/blob/main/docs/user_guide.md#passing-arguments
 
 /* Passing Arguments */
 static void BM_memcpy(benchmark::State &state) {
-  char *src = new char[state.range(0)];
-  char *dst = new char[state.range(0)];
-  memset(src, 'x', state.range(0));
+  auto array_size = static_cast<uint64_t>(state.range(0));
+  char *src = new char[array_size];
+  char *dst = new char[array_size];
+  memset(src, 'x', array_size);
   for (auto _ : state)
-    memcpy(dst, src, state.range(0));
+    memcpy(dst, src, array_size);
+
+  // set UserCounters
+  // SetBytesProcessed : give the number of bytes processed by the benchmark.
   state.SetBytesProcessed(int64_t(state.iterations()) *
                           int64_t(state.range(0)));
   delete[] src;
@@ -25,8 +30,10 @@ BENCHMARK(BM_memcpy)->Arg(8)->Arg(64)->Arg(512)->Arg(4 << 10)->Arg(8 << 10);
 
 /* Generation parameters from a dense range */
 static void BM_DenseRange(benchmark::State &state) {
+  auto array_size = static_cast<uint64_t>(state.range(0));
+  const auto elem_default = static_cast<int32_t>(state.range(0));
   for (auto _ : state) {
-    std::vector<int> v(state.range(0), state.range(0));
+    std::vector<int32_t> v(array_size, elem_default);
     auto data = v.data();
     benchmark::DoNotOptimize(data);
     benchmark::ClobberMemory();
@@ -36,24 +43,26 @@ static void BM_DenseRange(benchmark::State &state) {
 BENCHMARK(BM_DenseRange)->DenseRange(0, 1024, 128);
 
 /* Passing Multiple Arguments */
-// このサンプル関数ではプログラムが停止しない
 static auto RandomNumber() -> int { return rand() % 2; }
-static auto ConstructRandomSet(int size) -> std::set<int> {
+static auto ConstructRandomSet(std::size_t size) -> std::set<int> {
   std::set<int> data;
   while (data.size() < size)
     data.insert(RandomNumber());
   return data;
 }
 static void BM_SetInsert(benchmark::State &state) {
+  auto set_size = static_cast<std::size_t>(state.range(0));
+  auto insertions = static_cast<int32_t>(state.range(1));
   std::set<int> data;
   for (auto _ : state) {
     state.PauseTiming();
-    data = ConstructRandomSet(state.range(0));
+    data = ConstructRandomSet(set_size);
     state.ResumeTiming();
-    for (int j = 0; j < state.range(1); ++j)
+    for (int j = 0; j < insertions; ++j)
       data.insert(RandomNumber());
   }
 }
+// [TODO] 実行時間が長すぎる
 BENCHMARK(BM_SetInsert)
     ->Args({1 << 10, 128})
     ->Args({2 << 10, 128})
