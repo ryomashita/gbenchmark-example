@@ -4,6 +4,8 @@ WarningsAsErrors: ''
 HeaderFilterRegex: '*.*'
 FormatStyle: file
 CheckOptions:
+  - key:             *.IgnorePatterns # set ignored file for all checks
+    value:           'benchmark.h'
   - key:             llvm-else-after-return.WarnOnConditionVariables
     value:           'false'
   - key:             modernize-loop-convert.MinConfidence
