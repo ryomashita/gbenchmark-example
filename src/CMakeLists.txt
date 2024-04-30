@@ -30,3 +30,6 @@ register_as_benchmark(Templated)
 
 add_executable(Fixtures fixtures.cpp)
 register_as_benchmark(Fixtures)
+
+add_executable(CustomCounters custom_counters.cpp)
+register_as_benchmark(CustomCounters)

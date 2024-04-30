@@ -9,6 +9,9 @@
 // Reference:
 // https://github.com/google/benchmark/blob/main/docs/user_guide.md#passing-arguments
 
+// もし与えたArgより大きい値でrange()を呼び出した場合、
+// `Assertion '__n < this->size()' failed.` といった実行時エラーが発生する。
+
 /* Passing Arguments */
 static void BM_memcpy(benchmark::State &state) {
   auto array_size = static_cast<uint64_t>(state.range(0));
