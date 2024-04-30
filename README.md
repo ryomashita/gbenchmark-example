@@ -7,8 +7,8 @@ the example of [Google Benchmark](https://github.com/google/benchmark).
 ### Resources
 
 - [Repository](https://github.com/google/benchmark?tab=readme-ov-file)
-- [User Guide](https://github.com/google/benchmark/blob/main/docs/user_guide.md)
-- [Additional Documents (/docs)](https://github.com/google/benchmark/tree/main/docs)
+  - [User Guide](https://github.com/google/benchmark/blob/main/docs/user_guide.md)
+  - [Additional Documents (/docs)](https://github.com/google/benchmark/tree/main/docs)
 
 ## Install Benchmark
 
