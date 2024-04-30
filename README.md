@@ -8,6 +8,7 @@ the example of [Google Benchmark](https://github.com/google/benchmark).
 
 - [Repository](https://github.com/google/benchmark?tab=readme-ov-file)
 - [User Guide](https://github.com/google/benchmark/blob/main/docs/user_guide.md)
+- [Additional Documents (/docs)](https://github.com/google/benchmark/tree/main/docs)
 
 ## Install Benchmark
 
@@ -20,31 +21,33 @@ The compiled executable will run all benchmarks by default.
 
 ### Options
 
-Pass the --help flag for option information or see the [User Guide](https://github.com/google/benchmark/blob/main/docs/user_guide.md).
+To list the options, execute the built benchmark with `--help` flag.
+[User Guide](https://github.com/google/benchmark/blob/main/docs/user_guide.md) lists most of the options, but some others are in the `/docs` directory.
 
 - Output
 
+  - `--benchmark_format=<console|json|csv>`
   - `--benchmark_out_format=<json|console|csv>`
   - `--benchmark_out=<filename>`
   - `--benchmark_context=<key>=<value>,...`
+  - `--benchmark_list_tests={true|false}`
+  - `--benchmark_report_aggregates_only={true|false}`
+  - `--benchmark_display_aggregates_only={true|false}`
+  - `--benchmark_color={auto|true|false}`
+  - `--benchmark_counters_tabular={true|false}`
+  - `--benchmark_time_unit={ns|us|ms|s}`
+  - `--v=<verbosity>`
 
 - Running
 
   - `--benchmark_filter=<regex>`
   - `--benchmark_min_warmup_time=<min_warmup_time>`
   - `--benchmark_repetitions=<num_repetitions>`
-
-- `--benchmark_list_tests={true|false}`
-- `--benchmark_min_time=`<integer>x`OR`<float>s` `
-- `--benchmark_enable_random_interleaving={true|false}`
-- `--benchmark_report_aggregates_only={true|false}`
-- `--benchmark_display_aggregates_only={true|false}`
-- `--benchmark_format=<console|json|csv>`
-- `--benchmark_color={auto|true|false}`
-- `--benchmark_counters_tabular={true|false}`
-- `--benchmark_perf_counters=<counter>,...`
-- `--benchmark_time_unit={ns|us|ms|s}`
-- `--v=<verbosity>`
+  - `--benchmark_enable_random_interleaving={true|false}`
+    - [Random Interleaving](https://github.com/google/benchmark/blob/main/docs/random_interleaving.md)
+  - `--benchmark_min_time=<integer>xOR<float>s`
+  - `--benchmark_perf_counters=<counter>,...`
+    - [User-Requested Performance Counters](https://github.com/google/benchmark/blob/main/docs/perf_counters.md)
 
 ### Result Comparision
 
