@@ -20,3 +20,7 @@ link_gbenchmark(SetupTeardown)
 add_executable(PassingArguments pass_arguments.cpp)
 set_normal_compile_options(PassingArguments)
 link_gbenchmark(PassingArguments)
+
+add_executable(Complexity asymptotic_complexity.cpp)
+set_normal_compile_options(Complexity)
+link_gbenchmark(Complexity)
