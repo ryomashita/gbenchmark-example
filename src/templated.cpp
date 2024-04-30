@@ -55,4 +55,25 @@ template <class Q> void BM_Sequential(benchmark::State &state) {
 // C++11 or newer, you can use the BENCHMARK macro with template parameters:
 BENCHMARK(BM_Sequential<WaitQueue<int>>)->Range(1 << 0, 1 << 10);
 
+template <class Q>
+void BM_Sequential_With_Step(benchmark::State &state, int step) {
+  auto query_size = static_cast<int>(state.range(0));
+  Q q;
+  typename Q::value_type v{};
+  for (auto _ : state) {
+    for (int i = query_size; i -= step;)
+      q.push(v);
+    for (int e = query_size; e -= step;)
+      q.Wait(&v);
+  }
+  // actually messages, not bytes:
+  state.SetBytesProcessed(static_cast<int64_t>(state.iterations()) *
+                          state.range(0));
+}
+
+// User Guide のコードでは動作しない
+// BENCHMARK_CAPTURE(BM_Sequential_With_Step<WaitQueue<int>>, Step1, 1)
+//     ->RangeMultiplier(2)
+//     ->Range(1 << 0, 1 << 10);
+
 BENCHMARK_MAIN();
