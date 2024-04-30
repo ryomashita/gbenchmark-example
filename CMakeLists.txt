@@ -17,7 +17,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_SCRIPTS_DIR ${CMAKE_SOURCE_DIR}/tool/cmake)
 include(${CMAKE_SCRIPTS_DIR}/set_compile_props.cmake)
 include(${CMAKE_SCRIPTS_DIR}/set_warnings_as_errors.cmake)
-# include(${CMAKE_SCRIPTS_DIR}/enable_memcheck.cmake)
+include(${CMAKE_SCRIPTS_DIR}/enable_memcheck.cmake)
 include(${CMAKE_SCRIPTS_DIR}/enable_sanitizers.cmake)
 include(${CMAKE_SCRIPTS_DIR}/install_gbenchmark.cmake)
 
