@@ -3,24 +3,27 @@ link_gbenchmark(Add)
 set_normal_compile_options(Add)
 set_warnings_as_errors(Add)
 
+function(register_as_benchmark target)
+    set_normal_compile_options(${target})
+    link_gbenchmark(${target})
+endfunction()
+
 # getting started
 # run with `./build/src/GettingStarted` (gcc)
 add_executable(GettingStarted getting_started.cpp)
-set_normal_compile_options(GettingStarted)
-link_gbenchmark(GettingStarted)
+register_as_benchmark(GettingStarted)
 
 add_executable(BasicUsage basic_usage.cpp)
-set_normal_compile_options(BasicUsage)
-link_gbenchmark(BasicUsage)
+register_as_benchmark(BasicUsage)
 
 add_executable(SetupTeardown setup_teardown.cpp)
-set_normal_compile_options(SetupTeardown)
-link_gbenchmark(SetupTeardown)
+register_as_benchmark(SetupTeardown)
 
 add_executable(PassingArguments pass_arguments.cpp)
-set_normal_compile_options(PassingArguments)
-link_gbenchmark(PassingArguments)
+register_as_benchmark(PassingArguments)
 
 add_executable(Complexity asymptotic_complexity.cpp)
-set_normal_compile_options(Complexity)
-link_gbenchmark(Complexity)
+register_as_benchmark(Complexity)
+
+add_executable(Templated templated.cpp)
+register_as_benchmark(Templated)
