@@ -8,8 +8,8 @@ function(register_as_benchmark target)
     link_gbenchmark(${target})
 endfunction()
 
-# getting started
-# run with `./build/src/GettingStarted` (gcc)
+# benchmark examples
+# e.g., run with `./build/src/GettingStarted` (gcc)
 add_executable(GettingStarted getting_started.cpp)
 register_as_benchmark(GettingStarted)
 
@@ -27,3 +27,6 @@ register_as_benchmark(Complexity)
 
 add_executable(Templated templated.cpp)
 register_as_benchmark(Templated)
+
+add_executable(Fixtures fixtures.cpp)
+register_as_benchmark(Fixtures)
