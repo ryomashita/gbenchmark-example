@@ -33,3 +33,6 @@ register_as_benchmark(Fixtures)
 
 add_executable(CustomCounters custom_counters.cpp)
 register_as_benchmark(CustomCounters)
+
+add_executable(Multithreaded multithreaded.cpp)
+register_as_benchmark(Multithreaded)
