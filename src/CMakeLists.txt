@@ -39,3 +39,9 @@ register_as_benchmark(Multithreaded)
 
 add_executable(ManualTiming manual_timing.cpp)
 register_as_benchmark(ManualTiming)
+
+add_executable(CustomStatics custom_statics.cpp)
+register_as_benchmark(CustomStatics)
+
+add_executable(MemoryUsage memory_usage.cpp)
+register_as_benchmark(MemoryUsage)

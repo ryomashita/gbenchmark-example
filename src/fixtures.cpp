@@ -50,4 +50,19 @@ BENCHMARK_TEMPLATE_DEFINE_F(MyFixtureTemplated, DoubleTest, double)
 }
 BENCHMARK_REGISTER_F(MyFixtureTemplated, DoubleTest)->Threads(2);
 
+static void BM_vector_push_back(benchmark::State &state) {
+  for (auto _ : state) {
+    std::vector<int> v;
+    v.reserve(1);
+    // Allow v.data() to be clobbered. Pass as non-const
+    auto data = v.data();
+    // lvalue to avoid undesired compiler optimizations
+    benchmark::DoNotOptimize(data);
+    v.push_back(42);
+    // Force the compiler to write 42 to memory.
+    benchmark::ClobberMemory();
+  }
+}
+BENCHMARK(BM_vector_push_back);
+
 BENCHMARK_MAIN();
