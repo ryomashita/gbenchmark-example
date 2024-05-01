@@ -36,3 +36,6 @@ register_as_benchmark(CustomCounters)
 
 add_executable(Multithreaded multithreaded.cpp)
 register_as_benchmark(Multithreaded)
+
+add_executable(ManualTiming manual_timing.cpp)
+register_as_benchmark(ManualTiming)
