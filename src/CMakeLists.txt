@@ -45,3 +45,6 @@ register_as_benchmark(CustomStatics)
 
 add_executable(MemoryUsage memory_usage.cpp)
 register_as_benchmark(MemoryUsage)
+
+add_executable(ExitWithError exit_with_error.cpp)
+register_as_benchmark(ExitWithError)
