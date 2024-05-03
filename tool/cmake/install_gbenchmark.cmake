@@ -18,6 +18,20 @@ set(gtest_force_shared_crt
     CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(gbenchmark)
 
+# not working
+function(gbenchmark_download_script target_dir)
+  add_custom_command(
+    OUTPUT ${target_dir}/compare.py
+    # COMMAND ${CMAKE_COMMAND} -E make_directory ${target_dir}
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${gbenchmark_SOURCE_DIR}/tools ${target_dir}
+    DEPENDS ${target_dir}/compare.py
+    # WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Copying download script to ${target_dir}"
+    VERBATIM
+    )
+  add_custom_target(generate_download_script DEPENDS ${target_dir}/compare.py)
+endfunction()
+
 # link google-benchmark to target
 function(link_gbenchmark target)
   target_link_libraries(${target} benchmark::benchmark)

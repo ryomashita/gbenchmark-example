@@ -21,6 +21,9 @@ include(${CMAKE_SCRIPTS_DIR}/enable_memcheck.cmake)
 include(${CMAKE_SCRIPTS_DIR}/enable_sanitizers.cmake)
 include(${CMAKE_SCRIPTS_DIR}/install_gbenchmark.cmake)
 
+# download google-benchmark scripts
+gbenchmark_download_script(${CMAKE_SOURCE_DIR}/tool/gbench)
+
 # set default install path (can be overwritten with -DCMAKE_INSTALL_PREFIX=...)
 set(CMAKE_INSTALL_PREFIX
     ${CMAKE_SOURCE_DIR}/install
