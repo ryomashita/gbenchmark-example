@@ -1,4 +1,5 @@
-find_program(VALGRIND_EXECUTABLE valgrind)
+get_filename_component(USER_LOCAL_BIN_DIR $ENV{HOME}/.local/bin ABSOLUTE)
+find_program(VALGRIND_EXECUTABLE valgrind PATHS ${USER_LOCAL_BIN_DIR})
 
 # valgrind3.18 では clang ビルド時失敗するが, 3.22 では成功する (DWARF バージョン対応?が原因か)
 function(enable_memcheck target)

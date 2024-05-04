@@ -18,7 +18,6 @@ set(gtest_force_shared_crt
     CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(gbenchmark)
 
-# not working
 function(gbenchmark_download_script target_dir)
   add_custom_command(
     OUTPUT ${target_dir}/compare.py
