@@ -10,10 +10,11 @@ the example of [Google Benchmark](https://github.com/google/benchmark).
 
   - [User Guide](https://github.com/google/benchmark/blob/main/docs/user_guide.md)
   - [Additional Documents (/docs)](https://github.com/google/benchmark/tree/main/docs)
+  - [Sample Code (/test)](https://github.com/google/benchmark/tree/main/test)
 
 ## Install Benchmark
 
-see `./tool/cmake/install_gbenchmark.cmake`.
+see [/tool/cmake/install_gbenchmark.cmake](/tool/cmake/install_gbenchmark.cmake).
 
 ## Running Benchmark
 
