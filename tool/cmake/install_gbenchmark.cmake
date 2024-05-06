@@ -27,7 +27,7 @@ function(gbenchmark_download_script target_dir)
     COMMENT "[gbenchmark] Copying download script to ${target_dir}"
     VERBATIM # Escape all arguments properly
   )
-  add_custom_target(generate_download_script ALL DEPENDS ${target_dir}/compare.py)
+  add_custom_target(download_gbench_script ALL DEPENDS ${target_dir}/compare.py)
 endfunction()
 
 # link google-benchmark to target
