@@ -13,6 +13,9 @@ endfunction()
 add_executable(GettingStarted getting_started.cpp)
 register_as_benchmark(GettingStarted)
 
+add_executable(Minimum minimum.cpp)
+register_as_benchmark(Minimum)
+
 add_executable(BasicUsage basic_usage.cpp)
 register_as_benchmark(BasicUsage)
 
