@@ -43,7 +43,7 @@ BENCHMARK(BM_memcpy)
 
 /* Generation parameters from a dense range */
 static void BM_DenseRange(benchmark::State &state) {
-  auto array_size = static_cast<uint64_t>(state.range(0));
+  const auto array_size = static_cast<uint64_t>(state.range(0));
   const auto elem_default = static_cast<int32_t>(state.range(0));
   for (auto _ : state) {
     std::vector<int32_t> v(array_size, elem_default);
@@ -53,7 +53,9 @@ static void BM_DenseRange(benchmark::State &state) {
   }
 }
 // arguments generated are [ 0, 128, 256, 384, 512, 640, 768, 896, 1024 ].
-BENCHMARK(BM_DenseRange)->DenseRange(0, 1024, 128);
+BENCHMARK(BM_DenseRange)
+    ->Name("benchmark/DenseRange")
+    ->DenseRange(0, 1024, 128);
 
 /* Passing Multiple Arguments */
 static auto RandomNumber() -> int { return rand(); }

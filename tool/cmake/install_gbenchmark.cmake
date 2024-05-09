@@ -12,10 +12,6 @@ FetchContent_Declare(
   gbenchmark
   URL https://github.com/google/benchmark/archive/refs/tags/v1.8.3.zip
       DOWNLOAD_EXTRACT_TIMESTAMP OFF)
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt
-    ON
-    CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(gbenchmark)
 
 function(gbenchmark_download_script target_dir)
