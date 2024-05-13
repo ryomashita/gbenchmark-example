@@ -20,6 +20,9 @@ static void BM_memcpy(benchmark::State &state) {
 
   // set UserCounters
   // SetBytesProcessed : give the number of bytes processed by the benchmark.
+  // 各ベンチマークで１回だけ呼び出す。(イテレーション数を乗算している点に注意)
+  // デフォルトは CPU 時間単位だが、 UseRealTime()
+  // を呼び出すことで実時間に変更できる。
   state.SetBytesProcessed(int64_t(state.iterations()) *
                           int64_t(state.range(0)));
   delete[] src;
